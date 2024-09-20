@@ -27,30 +27,52 @@ const navigationConfig = [
   {
     id: 'working-project',
     title: 'Working Project Tabs',
-    type: 'item',
+    type: 'collapse',
     icon: 'heroicons-outline:chart-bar',
     children: [
       {
-        id: 'pql_1', 
+        id: 'pql_1',
         title: 'PQL One',
         type: 'item',
-        icon: 'heroicons-outline:briefcase',
+        icon: 'heroicons-outline:document',
         url: '/pql1',
       },
       {
         id: 'pql_2',
         title: 'PQL Two',
         type: 'item',
-        icon: 'heroicons-outline:briefcase',
+        icon: 'heroicons-outline:user',
         url: '/pql2',
       },
       {
         id: 'pql_3',
         title: 'PQL Three',
         type: 'item',
-        icon: 'heroicons-outline:briefcase',
-        url: '/pql2',
+        icon: 'heroicons-outline:chart-pie',
+        url: '/pql3',
       },
+    ]
+  },
+  {
+    id: 'users-management',
+    title: 'Users Management',
+    type: 'collapse',
+    icon: 'heroicons-outline:users',
+    children: [
+      {
+        id: 'users-profile',
+        title: 'Users Profile',
+        type: 'item',
+        icon: 'heroicons-outline:user',
+        url: '/'
+      },
+      {
+        id: 'user-roles',
+        title: 'Users Roles',
+        type: 'item',
+        icon: 'heroicons-outline:briefcase',
+        url: '/'
+      }
     ]
   }
 ];
