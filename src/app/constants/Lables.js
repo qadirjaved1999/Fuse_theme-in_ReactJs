@@ -6,11 +6,10 @@ export const LABELS = {
     southernAfrica: "Southern Africa ",
     roads: "Roads",
     aviation: "Aviation",
-    maritime: "Maritime/Ports",
+    maritime_ports: "Maritime/Ports",
     railways: "Railways",
-    multiModal: "Multi-Modal",
-    multiModal: "Multi-Modal",
-    powerGeneration: "Power Generation",
-    powerTransmission: "Power Transmission",
-    oilGas: "Oil & Gas"
+    multi_modal: "Multi-Modal",
+    power_generation: "Power Generation",
+    power_transmission: "Power Transmission",
+    oil_gas: "Oil & Gas"
 };
