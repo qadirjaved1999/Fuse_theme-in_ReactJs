@@ -5,7 +5,6 @@ import { FormControlLabel, Grid, Typography } from '@mui/material';
 import { styled } from '@mui/material';
 import Checkbox from '@mui/material/Checkbox';
 import { LABELS } from "../app/constants/Lables";
-import { column } from 'stylis';
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 export default function InternalForm() {
     const [checkedState, setCheckedState] = React.useState({
