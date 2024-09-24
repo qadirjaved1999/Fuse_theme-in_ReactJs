@@ -1,10 +1,11 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
-import { FormControlLabel, Grid, Typography } from '@mui/material';
+import { FormControlLabel, Grid, Radio, RadioGroup, Typography, Container } from '@mui/material';
 import { styled } from '@mui/material';
 import Checkbox from '@mui/material/Checkbox';
 import { LABELS } from "../app/constants/Lables";
+import { column } from 'stylis';
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 export default function InternalForm() {
     const [checkedState, setCheckedState] = React.useState({
@@ -13,7 +14,20 @@ export default function InternalForm() {
         north_africa: false,
         central_africa: false,
         southern_africa: false,
+        roads: false,
+        aviation: false,
+        maritime_ports: false,
+        railways: false,
+        multi_modal: false,
+        power_generation: false,
+        power_transmission: false,
+        oil_gas: false
     });
+    const [selectedValue, setSelectedValue] = React.useState('');
+    const handleRadioChange = () => {
+        setSelectedValue(event.target.value);
+        console.log("Selected Radio Button: ", event.target.value);
+    }
 
     const handleChange = (event) => {
         const { name, checked } = event.target;
@@ -25,277 +39,167 @@ export default function InternalForm() {
     };
     return (
         <>
-            <StyledHeading>
-                Giz Users Application Form
-            </StyledHeading>
-            <Box
-                component="form"
-                sx={{ padding: 5, '& .MuiTextField-root': { m: 1 } }}
-                noValidate
-                autoComplete="off"
-            >
-                <div>
-                    <TextField
-                        required
-                        id="outlined-required"
-                        label="Organization name"
-                        size="small"
-                        sx={{ width: "98%" }}
-                    />
-                </div>
-                <div>
-                    <TextField
-                        required
-                        id="outlined-required"
-                        label="Adress"
-                        size="small"
-                        sx={{ width: "98%" }}
-                    />
-                </div>
-                <div>
-                    <TextField
-                        required
-                        id="outlined-required"
-                        label="Contact person"
-                        size="small"
-                        sx={{ width: "48%" }}
-                    />
-                    <TextField
-                        required
-                        id="outlined-required"
-                        label="Position"
-                        size="small"
-                        sx={{ width: "48.2%" }}
-                    />
-                </div>
-                <div>
-                    <TextField
-                        required
-                        id="outlined-required"
-                        label="Telephone"
-                        size="small"
-                        sx={{ width: "31.5%" }}
-                    />
-                    <TextField
-                        required
-                        id="outlined-required"
-                        label="Fax"
-                        size="small"
-                        sx={{ width: "31.5%" }}
-                    />
-                    <TextField
-                        required
-                        id="outlined-required"
-                        label="Email"
-                        size="small"
-                        sx={{ width: "31.5%" }}
-                    />
-                </div>
-            </Box>
-            <Box sx={{ padding: "0px 40px 0px 40px" }}>
-                <StyledHeading fontSize="18px" textAlign="left" fontWeight="normal" margin="0px">
+            <Container>
+                <StyledHeading>
+                    Giz Users Application Form
+                </StyledHeading>
+                <Grid container spacing={3}>
+                    <Grid item xs={12}>
+                        <TextField
+                            required
+                            id="outlined-required"
+                            label="Organization name"
+                            size="small"
+                            fullWidth
+                        />
+                    </Grid>
+                    <Grid item xs={12}>
+                        <TextField
+                            required
+                            id="outlined-required"
+                            label="Address"
+                            size="small"
+                            fullWidth
+                        />
+                    </Grid>
+                    <Grid item xs={6}>
+                        <TextField
+                            required
+                            id="outlined-required"
+                            label="Contact person"
+                            size="small"
+                            fullWidth
+                        />
+                    </Grid>
+                    <Grid item xs={6}>
+                        <TextField
+                            required
+                            id="outlined-required"
+                            label="Position"
+                            size="small"
+                            fullWidth
+                        />
+                    </Grid>
+                    <Grid item xs={4}>
+                        <TextField
+                            required
+                            id="outlined-required"
+                            label="Telephone"
+                            size="small"
+                            fullWidth
+                        />
+                    </Grid>
+                    <Grid item xs={4}>
+                        <TextField
+                            required
+                            id="outlined-required"
+                            label="Fax"
+                            size="small"
+                            fullWidth
+                        />
+                    </Grid>
+                    <Grid item xs={4}>
+                        <TextField
+                            required
+                            id="outlined-required"
+                            label="Email"
+                            size="small"
+                            fullWidth
+                        />
+                    </Grid>
+                </Grid>
+                <StyledHeading fontSize="18px" textAlign="left" fontWeight="normal" margin="10px 0px 0px 0px">
                     Geographic Area of Proposed Activity
                 </StyledHeading>
-            </Box>
-            <Grid container spacing={5} sx={{ padding: "0px 50px 0px 50px" }}>
-                <Grid item >
-                    <FormControlLabel
-                        control={
-                            <Checkbox
-                                {...label}
-                                checked={checkedState.east_africa}
-                                onChange={handleChange}
-                                name="east_africa"
+                <RadioGroup value={selectedValue} onChange={handleRadioChange}>
+                    <Grid container spacing={5} sx={{ padding: "0px 50px 0px 50px" }}>
+                        <Grid item>
+                            <FormControlLabel
+                                control={<Radio value="east_africa" size="small" />}
+                                label={LABELS.eastAfrica}
                             />
-                        }
-                        label={LABELS.eastAfrica}
-                    />
-
-                </Grid>
-                <Grid item>
-                    <FormControlLabel
-                        control={
-                            <Checkbox
-                                {...label}
-                                checked={checkedState.west_africa}
-                                onChange={handleChange}
-                                name="west_africa"
+                        </Grid>
+                        <Grid item>
+                            <FormControlLabel
+                                control={<Radio value="west_africa" size="small" />}
+                                label={LABELS.westAfrica}
                             />
-                        }
-                        label={LABELS.westAfrica}
-                    />
-
-                </Grid>
-                <Grid item>
-                    <FormControlLabel
-                        control={
-                            <Checkbox
-                                {...label}
-                                checked={checkedState.north_africa}
-                                onChange={handleChange}
-                                name="north_africa"
+                        </Grid>
+                        <Grid item>
+                            <FormControlLabel
+                                control={<Radio value="north_africa" size="small" />}
+                                label={LABELS.northAfrica}
                             />
-                        }
-                        label={LABELS.northAfrica}
-                    />
-
-                </Grid>
-                <Grid item>
-                    <FormControlLabel
-                        control={
-                            <Checkbox
-                                {...label}
-                                checked={checkedState.central_africa}
-                                onChange={handleChange}
-                                name="central_africa"
+                        </Grid>
+                        <Grid item>
+                            <FormControlLabel
+                                control={<Radio value="central_africa" size="small" />}
+                                label={LABELS.centralAfrica}
                             />
-                        }
-                        label={LABELS.centralAfrica}
-                    />
-
-                </Grid>
-                <Grid item >
-                    <FormControlLabel
-                        control={
-                            <Checkbox
-                                {...label}
-                                checked={checkedState.southern_africa}
-                                onChange={handleChange}
-                                name="southern_africa"
+                        </Grid>
+                        <Grid item>
+                            <FormControlLabel
+                                control={<Radio value="southern_africa" size="small" />}
+                                label={LABELS.southernAfrica}
                             />
-                        }
-                        label={LABELS.southernAfrica}
-                    />
-                </Grid>
-            </Grid>
-            <Box sx={{ padding: "0px 40px 0px 40px" }}>
-                <StyledHeading fontSize="18px" textAlign="left" fontWeight="normal" margin="0px">
+                        </Grid>
+                    </Grid>
+                </RadioGroup>
+                <StyledHeading fontSize="18px" textAlign="left" fontWeight="normal" margin="10px 0px 0px 0px">
                     Sectoral Focus of Proposed Activity
                 </StyledHeading>
-            </Box>
-            <Grid container spacing={8} sx={{ padding: "0px 50px 0px 50px" }}>
-                <Box sx={{display: "flex", justifyContent: "center", alignItems: "center", padding: "0px 50px 0px 60px"}}>
-                    <Typography variant="h6" sx={{marginTop: "50px"}}>Transport</Typography>
-                </Box>
-                <Grid item>
-                    <Grid container direction="column" alignItems="center" justifyContent="center">
-                        <Grid item>
-                            <FormControlLabel
-                                control={
-                                    <Checkbox
-                                        {...label}
-                                        checked={checkedState.southern_africa}
-                                        onChange={handleChange}
-                                        name="southern_africa"
+                 {/* Parent Grid */}
+                <Grid container spacing={4} sx={{ padding: '20px' }}>
+                    {/* Heading */}
+                    <Grid item xs={12} md={3} sx={{display: "flex", justifyContent: "start", alignItems: "center"}}>
+                        <Typography variant="h6">Transport</Typography>
+                    </Grid>
+
+                    <Grid item xs={12} md={3}>
+                        <Grid container direction="column">
+                            {['roads', 'aviation', 'maritime_ports', 'railways', 'multi_modal'].map((field, index) => (
+                                <Grid item key={index}>
+                                    <FormControlLabel
+                                        control={
+                                            <Checkbox
+                                                size="small"
+                                                checked={checkedState[field]}
+                                                onChange={handleChange}
+                                                name={field}
+                                            />
+                                        }
+                                        label={LABELS[field]}
                                     />
-                                }
-                                label={LABELS.southernAfrica}
-                            />
+                                </Grid>
+                            ))}
                         </Grid>
-                        <Grid item>
-                            <FormControlLabel
-                                control={
-                                    <Checkbox
-                                        {...label}
-                                        checked={checkedState.southern_africa}
-                                        onChange={handleChange}
-                                        name="southern_africa"
+                    </Grid>
+
+                    <Grid item xs={12} md={3} sx={{display: "flex", justifyContent: "start", alignItems: "center"}}>
+                        <Typography variant="h6">Energy</Typography>
+                    </Grid>
+
+                    <Grid item xs={12} md={3} sx={{display: "flex", justifyContent: "start", alignItems: "center"}}>
+                        <Grid container direction="column">
+                            {['power_generation', 'power_transmission', 'oil_gas'].map((field, index) => (
+                                <Grid item key={index}>
+                                    <FormControlLabel
+                                        control={
+                                            <Checkbox
+                                                size="small"
+                                                checked={checkedState[field]}
+                                                onChange={handleChange}
+                                                name={field}
+                                            />
+                                        }
+                                        label={LABELS[field]}
                                     />
-                                }
-                                label={LABELS.southernAfrica}
-                            />
-                        </Grid>
-                        <Grid item>
-                            <FormControlLabel
-                                control={
-                                    <Checkbox
-                                        {...label}
-                                        checked={checkedState.southern_africa}
-                                        onChange={handleChange}
-                                        name="southern_africa"
-                                    />
-                                }
-                                label={LABELS.southernAfrica}
-                            />
-                        </Grid>
-                        <Grid item>
-                            <FormControlLabel
-                                control={
-                                    <Checkbox
-                                        {...label}
-                                        checked={checkedState.southern_africa}
-                                        onChange={handleChange}
-                                        name="southern_africa"
-                                    />
-                                }
-                                label={LABELS.southernAfrica}
-                            />
-                        </Grid>
-                        <Grid item>
-                            <FormControlLabel
-                                control={
-                                    <Checkbox
-                                        {...label}
-                                        checked={checkedState.southern_africa}
-                                        onChange={handleChange}
-                                        name="southern_africa"
-                                    />
-                                }
-                                label={LABELS.southernAfrica}
-                            />
+                                </Grid>
+                            ))}
                         </Grid>
                     </Grid>
                 </Grid>
-                <Box sx={{display: "flex", justifyContent: "center", alignItems: "center", padding: "0px 50px 0px 60px"}}>
-                    <Typography variant="h6" sx={{marginTop: "50px"}}>Energys</Typography>
-                </Box>
-                <Grid item>
-                    <Grid container direction="column" alignItems="center" justifyContent="center" alignContent="center">
-                        <Grid item>
-                            <FormControlLabel
-                                control={
-                                    <Checkbox
-                                        {...label}
-                                        checked={checkedState.southern_africa}
-                                        onChange={handleChange}
-                                        name="southern_africa"
-                                    />
-                                }
-                                label={LABELS.southernAfrica}
-                            />
-                        </Grid>
-                        <Grid item>
-                            <FormControlLabel
-                                control={
-                                    <Checkbox
-                                        {...label}
-                                        checked={checkedState.southern_africa}
-                                        onChange={handleChange}
-                                        name="southern_africa"
-                                    />
-                                }
-                                label={LABELS.southernAfrica}
-                            />
-                        </Grid>
-                        <Grid item>
-                            <FormControlLabel
-                                control={
-                                    <Checkbox
-                                        {...label}
-                                        checked={checkedState.southern_africa}
-                                        onChange={handleChange}
-                                        name="southern_africa"
-                                    />
-                                }
-                                label={LABELS.southernAfrica}
-                            />
-                        </Grid>
-                    </Grid>
-                </Grid>
-            </Grid>
-
-
-
+            </Container>
         </>
 
     );
