@@ -1,5 +1,4 @@
-// src/app/main/workingProject/Pql1Co
-import PqlOne from "src/components/PqlOne";
+import { PqlOne } from "src/helpers/components";
 const Pql1Config = {
   settings: {
     layout: {

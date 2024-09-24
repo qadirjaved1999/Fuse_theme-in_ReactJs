@@ -1,6 +1,4 @@
-// src/app/main/workingProject/Pql3Config.js
-import PqlThree from "src/components/PqlThree";
-
+import { PqlThree } from "src/helpers/components";
 const Pql3Config = {
   settings: {
     layout: {

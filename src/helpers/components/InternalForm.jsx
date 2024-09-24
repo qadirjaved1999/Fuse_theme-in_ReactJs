@@ -1,12 +1,11 @@
 import * as React from 'react';
-// import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { FormControlLabel, Grid, Radio, RadioGroup, Typography, Container } from '@mui/material';
 import { styled } from '@mui/material';
 import Checkbox from '@mui/material/Checkbox';
-import { LABELS } from "../app/constants/Lables";
-// import { column } from 'stylis';
-const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+import { LABELS } from 'src/constants/Lables';
+import CustomTextInput from './CustomTextInput'
+// const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 export default function InternalForm() {
     const [checkedState, setCheckedState] = React.useState({
         east_africa: false,
@@ -45,66 +44,45 @@ export default function InternalForm() {
                 </StyledHeading>
                 <Grid container spacing={3}>
                     <Grid item xs={12}>
-                        <TextField
-                            required
-                            id="outlined-required"
-                            label="Organization name"
-                            size="small"
-                            fullWidth
+                        <CustomTextInput
+                            label={LABELS.organizationName}
+                            placeholder={LABELS.organizationName}
                         />
                     </Grid>
                     <Grid item xs={12}>
-                        <TextField
-                            required
-                            id="outlined-required"
-                            label="Address"
-                            size="small"
-                            fullWidth
+                        <CustomTextInput
+                            label={LABELS.adress}
+                            placeholder={LABELS.adress}
                         />
                     </Grid>
                     <Grid item xs={6}>
-                        <TextField
-                            required
-                            id="outlined-required"
-                            label="Contact person"
-                            size="small"
-                            fullWidth
+                        <CustomTextInput
+                            label={LABELS.contactPerson}
+                            placeholder={LABELS.contactPerson}
                         />
                     </Grid>
                     <Grid item xs={6}>
-                        <TextField
-                            required
-                            id="outlined-required"
-                            label="Position"
-                            size="small"
-                            fullWidth
+                        <CustomTextInput
+                            label={LABELS.position}
+                            placeholder={LABELS.position}
                         />
                     </Grid>
                     <Grid item xs={4}>
-                        <TextField
-                            required
-                            id="outlined-required"
-                            label="Telephone"
-                            size="small"
-                            fullWidth
+                        <CustomTextInput
+                            label={LABELS.telephone}
+                            placeholder={LABELS.telephone}
                         />
                     </Grid>
                     <Grid item xs={4}>
-                        <TextField
-                            required
-                            id="outlined-required"
-                            label="Fax"
-                            size="small"
-                            fullWidth
+                        <CustomTextInput
+                            label={LABELS.fax}
+                            placeholder={LABELS.fax}
                         />
                     </Grid>
                     <Grid item xs={4}>
-                        <TextField
-                            required
-                            id="outlined-required"
-                            label="Email"
-                            size="small"
-                            fullWidth
+                        <CustomTextInput
+                            label={LABELS.email}
+                            placeholder={LABELS.email}
                         />
                     </Grid>
                 </Grid>
@@ -148,10 +126,10 @@ export default function InternalForm() {
                 <StyledHeading fontSize="18px" textAlign="left" fontWeight="normal" margin="10px 0px 0px 0px">
                     Sectoral Focus of Proposed Activity
                 </StyledHeading>
-                 {/* Parent Grid */}
+                {/* Parent Grid */}
                 <Grid container spacing={4} sx={{ padding: '20px' }}>
                     {/* Heading */}
-                    <Grid item xs={12} md={3} sx={{display: "flex", justifyContent: "start", alignItems: "center"}}>
+                    <Grid item xs={12} md={3} sx={{ display: "flex", justifyContent: "start", alignItems: "center" }}>
                         <Typography variant="h6">Transport</Typography>
                     </Grid>
 
@@ -175,11 +153,11 @@ export default function InternalForm() {
                         </Grid>
                     </Grid>
 
-                    <Grid item xs={12} md={3} sx={{display: "flex", justifyContent: "start", alignItems: "center"}}>
+                    <Grid item xs={12} md={3} sx={{ display: "flex", justifyContent: "start", alignItems: "center" }}>
                         <Typography variant="h6">Energy</Typography>
                     </Grid>
 
-                    <Grid item xs={12} md={3} sx={{display: "flex", justifyContent: "start", alignItems: "center"}}>
+                    <Grid item xs={12} md={3} sx={{ display: "flex", justifyContent: "start", alignItems: "center" }}>
                         <Grid container direction="column">
                             {['power_generation', 'power_transmission', 'oil_gas'].map((field, index) => (
                                 <Grid item key={index}>
@@ -207,7 +185,7 @@ export default function InternalForm() {
 
 // HEADINGS STYLE
 const StyledHeading = styled(Typography)(({ fontSize, padding, textAlign, margin }) => ({
-    fontSize: fontSize || '32px', // default value if not provided
+    fontSize: fontSize || '32px',
     fontWeight: '700',
     fontFamily: 'Roboto, Arial, sans-serif',
     margin: margin || '20px 0 0 0',

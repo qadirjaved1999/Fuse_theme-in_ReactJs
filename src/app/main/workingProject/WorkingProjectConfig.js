@@ -1,5 +1,4 @@
-// src/app/main/workingProject/WorkingProjectConfig.js
-import PqlOne from 'src/components/PqlOne';
+import { PqlOne } from 'src/helpers/components';
 import Pql1Config from './Pql1Config';
 import Pql2Config from './Pql2Config';
 import Pql3Config from './Pql3Config';
@@ -12,8 +11,8 @@ const WorkingProjectConfig = {
   },
   routes: [
     {
-      path: '/working-project', // Main working project route
-      element: <div><PqlOne /></div>, // Optional main component or message
+      path: '/working-project', 
+      element: <div><PqlOne /></div>,
     },
     ...Pql1Config.routes,
     ...Pql2Config.routes,

@@ -1,5 +1,4 @@
-// src/app/main/workingProject/Pql2Config.js
-import PqlTwo from "src/components/PqlTwo";
+import { PqlTwo } from "src/helpers/components";
 
 const Pql2Config = {
   settings: {

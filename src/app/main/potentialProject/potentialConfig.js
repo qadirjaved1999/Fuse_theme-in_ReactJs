@@ -1,4 +1,4 @@
-import InternalForm from 'src/components/InternalForm';
+import { InternalForm } from "src/helpers/components";
 
 const PotentialConfig = {
   settings: {
