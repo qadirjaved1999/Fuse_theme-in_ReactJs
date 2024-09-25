@@ -2,7 +2,7 @@
 export const LABELS = {
     // Input Text Fields
     organizationName: "Organization name",
-    adress: "Adress",
+    address: "address",
     contactPerson: "Contact person",
     position: "Position",
     telephone: "Telephone",

@@ -38,16 +38,17 @@
         "prismjs": "1.28.0",
         "prop-types": "15.8.1",
         "qs": "6.10.3",
-        "react": "18.1.0",
+        "react": "^18.3.1",
         "react-autosuggest": "10.1.0",
-        "react-dom": "18.1.0",
+        "react-dom": "^18.3.1",
         "react-draft-wysiwyg": "1.14.7",
         "react-hook-form": "7.31.1",
+        "react-hot-loader": "^4.13.1",
         "react-i18next": "11.16.9",
         "react-popper": "2.3.0",
         "react-redux": "8.0.1",
         "react-router-dom": "6.3.0",
-        "react-scripts": "5.0.1",
+        "react-scripts": "^5.0.1",
         "react-swipeable": "7.0.0",
         "redux-logger": "4.0.0",
         "styled-components": "5.3.5",
@@ -58,9 +59,7 @@
     },
     "peerDependencies": {
         "autoprefixer": "10.4.7",
-        "postcss": "8.4.13",
-        "react": "18.1.0",
-        "react-dom": "18.1.0"
+        "postcss": "8.4.13"
     },
     "resolutions": {
         "react": "18.1.0",
@@ -103,7 +102,7 @@
         "util": "^0.12.4"
     },
     "scripts": {
-        "start": "react-app-rewired  start",
+        "start": "npm run dev",
         "build": "cross-env GENERATE_SOURCEMAP=false react-app-rewired build",
         "test": "react-app-rewired test --env=node",
         "eject": "react-app-rewired eject",

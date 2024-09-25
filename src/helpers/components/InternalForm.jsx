@@ -1,5 +1,4 @@
 import * as React from 'react';
-import TextField from '@mui/material/TextField';
 import { FormControlLabel, Grid, Radio, RadioGroup, Typography, Container } from '@mui/material';
 import { styled } from '@mui/material';
 import Checkbox from '@mui/material/Checkbox';
@@ -7,6 +6,18 @@ import { LABELS } from 'src/constants/Lables';
 import CustomTextInput from './CustomTextInput'
 // const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 export default function InternalForm() {
+    const initialState = {
+        // use this naming structure for object because in DB use this structure
+        organisation_name: '',
+        address: '',
+        contact_person: '',
+        position: '',
+        telephone: '',
+        fax: '',
+        email: ''
+    }
+    const [data, setData] = React.useState(initialState)
+    console.log("Form data => ",data)
     const [checkedState, setCheckedState] = React.useState({
         east_africa: false,
         west_africa: false,
@@ -23,7 +34,14 @@ export default function InternalForm() {
         oil_gas: false
     });
     const [selectedValue, setSelectedValue] = React.useState('');
-    const handleRadioChange = () => {
+    const inputHandler = (e) => {
+       const { name, value} = e.target;
+       setData({
+        ...data, [name]: value
+       });
+       console.log("the name is =>", name + " the value of this input => ", value)
+    }
+    const handleRadioChange = (event) => {
         setSelectedValue(event.target.value);
         console.log("Selected Radio Button: ", event.target.value);
     }
@@ -46,43 +64,57 @@ export default function InternalForm() {
                     <Grid item xs={12}>
                         <CustomTextInput
                             label={LABELS.organizationName}
-                            placeholder={LABELS.organizationName}
+                            value={data.organisation_name}
+                            name="organisation_name"
+                            onChange={inputHandler}
                         />
                     </Grid>
                     <Grid item xs={12}>
                         <CustomTextInput
-                            label={LABELS.adress}
-                            placeholder={LABELS.adress}
+                            label={LABELS.address}
+                            value={data.address}
+                            name="address"
+                            onChange={inputHandler}
                         />
                     </Grid>
                     <Grid item xs={6}>
                         <CustomTextInput
                             label={LABELS.contactPerson}
-                            placeholder={LABELS.contactPerson}
+                            value={data.contact_person}
+                            name="contact_person"
+                            onChange={inputHandler}
                         />
                     </Grid>
                     <Grid item xs={6}>
                         <CustomTextInput
                             label={LABELS.position}
-                            placeholder={LABELS.position}
+                            value={data.position}
+                            name="position"
+                            onChange={inputHandler}
                         />
                     </Grid>
                     <Grid item xs={4}>
                         <CustomTextInput
                             label={LABELS.telephone}
-                            placeholder={LABELS.telephone}
+                            value={data.telephone}
+                            name="telephone"
+                            onChange={inputHandler}
                         />
                     </Grid>
                     <Grid item xs={4}>
                         <CustomTextInput
                             label={LABELS.fax}
-                            placeholder={LABELS.fax}
+                            value={data.fax}
+                            name="fax"
+                            onChange={inputHandler}
                         />
                     </Grid>
                     <Grid item xs={4}>
                         <CustomTextInput
                             label={LABELS.email}
-                            placeholder={LABELS.email}
+                            value={data.email}
+                            name="email"
+                            onChange={inputHandler}
                         />
                     </Grid>
                 </Grid>

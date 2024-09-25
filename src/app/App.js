@@ -15,6 +15,7 @@ import FuseAuthorization from '@fuse/core/FuseAuthorization';
 import settingsConfig from 'app/configs/settingsConfig';
 import withAppProviders from './withAppProviders';
 import { AuthProvider } from './auth/AuthContext';
+// import { hot } from 'react-hot-loader/root'; 
 
 // import axios from 'axios';
 /**
@@ -70,5 +71,6 @@ const App = () => {
     </CacheProvider>
   );
 };
+
 
 export default withAppProviders(App)();
